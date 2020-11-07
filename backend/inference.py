@@ -1,6 +1,7 @@
 import config
 import cv2
 
+
 def inference(model, image):
     model_name = f"{config.MODEL_PATH}{model}.t7"
     model = cv2.dnn.readNetFromTorch(model_name)
@@ -34,4 +35,5 @@ def inference(model, image):
     output[2] += 123.68
 
     output = output.transpose(1, 2, 0)
+
     return output, resized_image
